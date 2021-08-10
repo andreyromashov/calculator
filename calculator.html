@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>calculator</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<!-- Действие №1
+добавляем кнопки и присваиваем им функции-->
+    <div class="st" style=" "> 
+        <div>
+            <input id="display" type="text">
+        </div>
+        <div>
+            <button onclick="press('7')">7</button>
+            <button onclick="press('8')">8</button>
+            <button onclick="press('9')">9</button>
+            <button onclick="press('/')">/</button>
+        </div>
+        <div>
+            <button onclick="press('4')">4</button>
+            <button onclick="press('5')">5</button>
+            <button onclick="press('6')">6</button>
+            <button onclick="press('*')">*</button>
+        </div>
+        <div>
+            <button onclick="press('1')">1</button>
+            <button onclick="press('2')">2</button>
+            <button onclick="press('3')">3</button>
+            <button onclick="press('-')">-</button>
+        </div>
+        <div>
+            <button onclick="press('0')">0</button>
+            
+            <button onclick="press('.')">.</button>
+            <button onclick="answer()">=</button>
+            <button onclick="press('+')">+</button>
+            <button onclick="clear1()">C</button>
+            <button onclick="back()">←</button>
+        </div>
+    </div>
+
+    <script>
+        //Действие №2
+        //добавляем индикатор который ссылается на дисплей
+        let display = document.getElementById("display");
+        //Действие №3
+        //функция, добавляет элемент в конец строки
+        function press(n) {
+          display.value += n;
+        }
+        //Действие №4
+        //функция, производит счёт данных 
+        function answer() {
+          display.value = eval(display.value);
+        }
+        //Действие №5
+        //функция, заменяет все данные пустой строкой (удаление)
+        function clear1() {
+          display.value = "";
+        }
+        //Действие №6
+        //функция, удаляет последний элемент
+        function back() {
+          let a = display.value;
+          display.value = a.substring(0,a.length-1);
+        }
+    </script>
+
+    <!-- Действие №7
+     Добавляем стилей-->
+
+    <style>
+    button {
+    color: #000;
+    background-color: #FDD9B5;
+    border-color: #FBCEB1;
+    font-size: 25pt;
+    width:70px;
+
+}
+    div div{
+    display: flex;
+    flex-direction: row;
+    color: #111;
+    background-color: #FBCEB1;
+    height: 70px;
+    text-align: center;
+    } 
+    #display {
+      width:420px;
+      font-size: 20pt;
+      text-align: right;
+    }
+    .st {
+      border-style:dashed;
+      border-color: #555;
+      width:420px;
+    }
+    </style>
+</body>
+</html>
